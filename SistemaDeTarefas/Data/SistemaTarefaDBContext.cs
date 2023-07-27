@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SistemaDeTarefas.Data.Map;
 using SistemaDeTarefas.Models;
+using System.Reflection;
 
 namespace SistemaDeTarefas.Data
 {
@@ -18,6 +19,7 @@ namespace SistemaDeTarefas.Data
         {
            modelBuilder.ApplyConfiguration(new UsuarioMap());
            modelBuilder.ApplyConfiguration(new TarefaMap());
+           modelBuilder.ApplyConfigurationsFromAssembly(typeof(SistemaTarefaDBContext).Assembly);
 
            base.OnModelCreating(modelBuilder);
         }
